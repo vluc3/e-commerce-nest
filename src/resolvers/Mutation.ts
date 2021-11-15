@@ -1,4 +1,4 @@
-import { v4 as uuid }  from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 export const Mutation = {
   addCategory: (parent: any, { input }, { database }) => {
@@ -6,19 +6,21 @@ export const Mutation = {
 
     const result = {
       id: uuid(),
-      name
+      name,
     };
 
     database.categories.push(result);
     return result;
   },
   updateCategory: (parent: any, { id, input }, { database }) => {
-    const index: number = database.categories.findIndex((category: any) => category.id === id);
+    const index: number = database.categories.findIndex(
+      (category: any) => category.id === id,
+    );
 
     if (index > -1) {
       database.categories[index] = {
         ...database.categories[index],
-        ...input
+        ...input,
       };
 
       return database.categories[index];
@@ -28,15 +30,17 @@ export const Mutation = {
   },
   deleteCategory: (parent: any, { id }, { database }) => {
     const length: number = database.categories.length;
-    database.categories = database.categories.filter((category: any) => category.id !== id);
+    database.categories = database.categories.filter(
+      (category: any) => category.id !== id,
+    );
     const result: boolean = database.categories.length < length;
 
     if (result) {
-      database.products = database.products.map(product => {
+      database.products = database.products.map((product: any) => {
         if (product.categoryId === id) {
           return {
             ...product,
-            categoryId: null
+            categoryId: null,
           };
         } else {
           return product;
@@ -72,12 +76,14 @@ export const Mutation = {
     return result;
   },
   updateProduct: (parent: any, { id, input }, { database }) => {
-    const index: number = database.products.findIndex((product: any) => product.id === id);
+    const index: number = database.products.findIndex(
+      (product: any) => product.id === id,
+    );
 
     if (index > -1) {
       database.products[index] = {
         ...database.products[index],
-        ...input
+        ...input,
       };
 
       return database.products[index];
@@ -87,23 +93,21 @@ export const Mutation = {
   },
   deleteProduct: (parent: any, { id }, { database }) => {
     const length: number = database.products.length;
-    database.products = database.products.filter((product: any) => product.id !== id);
+    database.products = database.products.filter(
+      (product: any) => product.id !== id,
+    );
     const result: boolean = database.products.length < length;
 
     if (result) {
-      database.reviews = database.reviews.filter((review: any) => review.productId !== id);
+      database.reviews = database.reviews.filter(
+        (review: any) => review.productId !== id,
+      );
     }
 
     return result;
   },
   addReview: (parent: any, { input }, { database }) => {
-    const {
-      date,
-      title,
-      productId,
-      comment,
-      rating,
-     } = input;
+    const { date, title, productId, comment, rating } = input;
 
     const result = {
       id: uuid(),
@@ -118,12 +122,14 @@ export const Mutation = {
     return result;
   },
   updateReview: (parent: any, { id, input }, { database }) => {
-    const index: number = database.reviews.findIndex((review: any) => review.id === id);
+    const index: number = database.reviews.findIndex(
+      (review: any) => review.id === id,
+    );
 
     if (index > -1) {
       database.reviews[index] = {
         ...database.reviews[index],
-        ...input
+        ...input,
       };
 
       return database.reviews[index];
@@ -133,8 +139,10 @@ export const Mutation = {
   },
   deleteReview: (parent: any, { id }, { database }) => {
     const length: number = database.reviews.length;
-    database.reviews = database.reviews.filter((review: any) => review.id !== id);
+    database.reviews = database.reviews.filter(
+      (review: any) => review.id !== id,
+    );
     const result: boolean = database.reviews.length < length;
     return result;
   },
-}
+};

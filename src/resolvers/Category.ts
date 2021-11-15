@@ -18,7 +18,7 @@ export const Category = {
           let sumRating: number = 0;
           let reviewCount: number = 0;
 
-          database.reviews.forEach(review => {
+          database.reviews.forEach((review: any) => {
             if (review.productId === product.id) {
               sumRating += review.rating;
               reviewCount++;
@@ -31,5 +31,5 @@ export const Category = {
     }
 
     return filteredProducts;
-  }
+  },
 };

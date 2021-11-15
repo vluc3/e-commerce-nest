@@ -40,5 +40,5 @@ export const Query = {
     }
 
     return filteredProducts;
-  }
+  },
 };

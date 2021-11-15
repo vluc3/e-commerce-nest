@@ -18,8 +18,8 @@ import { reviews } from './database/reviews';
 const database = {
   categories,
   products,
-  reviews
-}
+  reviews,
+};
 
 const apolloServer = new ApolloServer({
   typeDefs: schemas,
@@ -27,11 +27,11 @@ const apolloServer = new ApolloServer({
     Query,
     Mutation,
     Category,
-    Product
+    Product,
   },
   context: {
-    database
-  }
+    database,
+  },
 });
 
 async function bootstrap() {
