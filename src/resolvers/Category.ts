@@ -15,8 +15,8 @@ export const Category = {
 
       if ([1, 2, 3, 4, 5].includes(avgRating)) {
         filteredProducts = filteredProducts.filter((product: any) => {
-          let sumRating: number = 0;
-          let reviewCount: number = 0;
+          let sumRating = 0;
+          let reviewCount = 0;
 
           database.reviews.forEach((review: any) => {
             if (review.productId === product.id) {
