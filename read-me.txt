@@ -1,0 +1,25 @@
+npm i -g @nestjs/cli
+
+nest --version
+
+nest new e-commerce-nest
+nest
+
+npm i -s graphql
+npmi -s apollo-server
+
+npm i -s uuid
+npm i -s -D @types/uuid
+
+npm run start:dev
+npm run start:debug
+
+_________________________________
+
+
+git remote add origin https://github.com/vluc3/e-commerce-nest.git
+git branch -M main
+git push -u origin main
+
+_________________________________
+

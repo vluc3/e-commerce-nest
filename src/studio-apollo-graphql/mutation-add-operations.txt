@@ -1,0 +1,63 @@
+mutation {
+  addCategory(input: {
+    name: "Office"
+  }) {
+    id
+    name
+  }
+
+  addProduct(input: {
+    name: "Fork"
+    description: "Gold Diamond Fork"
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70"
+    image: "img-55"
+    price: 555.50
+    onSale: true
+    quantity: 2
+  }) {
+    id
+    name
+    description
+    category {
+      name
+    }
+    image
+    price
+    onSale
+    quantity
+  }
+}
+
+mutation {
+  addReview(input: {
+    date: "2022-01-01"
+    title: "So expensive"
+    productId: "a2941b78-f80d-4e2e-9acc-f60ab8c6e409"
+    comment: "Not worth the price"
+    rating: 2
+  }) {
+    id
+    date
+    comment
+    rating
+  }
+}
+
+query {
+  categories {
+    id
+    name
+    products {
+      id
+      name
+    }
+  }
+
+  product(id: "a2941b78-f80d-4e2e-9acc-f60ab8c6e409") {
+    name
+    reviews {
+      rating
+      comment
+    }
+  }
+}

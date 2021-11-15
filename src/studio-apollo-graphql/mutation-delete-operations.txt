@@ -1,0 +1,29 @@
+mutation {
+  deleteCategory(id: "d914aec0-25b2-4103-9ed8-225d39018d1d")
+  deleteProduct(id: "53a0724c-a416-4cac-ae45-bfaedce1f147")
+  deleteReview(id: "92450802-24ef-4907-9c70-b82697a96882")
+}
+
+query {
+  categories {
+    id
+    name
+    products {
+      id
+      name
+    }
+  }
+
+  products {
+    id
+    name
+    category {
+      id
+    }
+    reviews {
+      id
+      rating
+      comment
+    }
+  }
+}

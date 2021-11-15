@@ -1,0 +1,69 @@
+mutation {
+  updateCategory(id: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
+  input: {
+    name: "Kitchen & Bath"
+  }) {
+    name
+  }
+
+  updateProduct(id: "53a0724c-a416-4cac-ae45-bfaedce1f147",
+  input: {
+    name: "Steel Pot"
+    description: "Silver steel pot that is perfect for cooking"
+    image: "img-1"
+    quantity: 230
+    price: 32.44
+    onSale: true
+  }) {
+    name
+    description
+    image
+    quantity
+    price
+    onSale
+  }
+
+  updateReview(id: "78851fe8-a657-410f-9b0a-2bc952636e16",
+  input: {
+    date: "2021-04-24"
+    title: "This is good"
+    comment: "one of the most decent pots"
+    rating: 4
+  }) {
+    date
+    title
+    comment
+    rating
+  }
+}
+
+query {
+  categories {
+    id
+    name
+    products {
+      id
+      name
+      description
+      image
+      quantity
+      price
+      onSale
+    }
+  }
+
+  products {
+    id
+    name
+    category {
+      id
+    }
+    reviews {
+      id
+      date
+      title
+      comment
+      rating
+    }
+  }
+}

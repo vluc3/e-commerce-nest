@@ -1,0 +1,49 @@
+query($categoryId: ID!) {
+  category(id: $categoryId) {
+    id
+    name
+    products(filter: {
+      onSale: true
+      avgRating: 5
+    }) {
+      name
+      price
+      onSale
+      reviews {
+        rating
+      }
+    }
+  }
+
+  categories {
+    id
+    name
+  }
+
+  product(id: "2c931e7e-510f-49e5-aed6-d6b44087e5a1") {
+    name
+    description
+    image
+    price
+    reviews {
+      title
+      comment
+      rating
+    }
+  }
+
+  products(filter: {
+    onSale: true
+    avgRating: 5
+  }) {
+    name
+    price
+    onSale
+    category {
+      name
+    }
+    reviews {
+      rating
+    }
+  }
+}
