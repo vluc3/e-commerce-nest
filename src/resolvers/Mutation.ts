@@ -30,9 +30,11 @@ export const Mutation = {
   },
   deleteCategory: (parent: any, { id }, { database }) => {
     const length: number = database.categories.length;
+
     database.categories = database.categories.filter(
       (category: any) => category.id !== id,
     );
+
     const result: boolean = database.categories.length < length;
 
     if (result) {

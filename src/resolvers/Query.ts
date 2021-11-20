@@ -10,19 +10,19 @@ export const Query = {
     return database.products.find((product: any) => product.id === id);
   },
   products: (parent: any, { filter }, { database }) => {
-    let filteredProducts = database.products;
+    let result = database.products;
 
     if (filter) {
       const { onSale, avgRating } = filter;
 
       if (onSale !== null) {
-        filteredProducts = filteredProducts.filter((product: any) => {
+        result = result.filter((product: any) => {
           return product.onSale === onSale;
         });
       }
 
       if ([1, 2, 3, 4, 5].includes(avgRating)) {
-        filteredProducts = filteredProducts.filter((product: any) => {
+        result = result.filter((product: any) => {
           let sumRating = 0;
           let reviewCount = 0;
 
@@ -39,6 +39,6 @@ export const Query = {
       }
     }
 
-    return filteredProducts;
+    return result;
   },
 };

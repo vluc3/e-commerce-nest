@@ -1,11 +1,15 @@
 query($categoryId: ID!) {
-  category(id: $categoryId) {
+  category(
+    id: $categoryId
+  ) {
     id
     name
-    products(filter: {
-      onSale: true
-      avgRating: 5
-    }) {
+    products(
+      filter: {
+        onSale: true
+        avgRating: 5
+      }
+    ) {
       name
       price
       onSale
@@ -20,7 +24,9 @@ query($categoryId: ID!) {
     name
   }
 
-  product(id: "2c931e7e-510f-49e5-aed6-d6b44087e5a1") {
+  product(
+    id: "2c931e7e-510f-49e5-aed6-d6b44087e5a1"
+  ) {
     name
     description
     image
@@ -32,10 +38,12 @@ query($categoryId: ID!) {
     }
   }
 
-  products(filter: {
-    onSale: true
-    avgRating: 5
-  }) {
+  products(
+    filter: {
+      onSale: true
+      avgRating: 5
+    }
+  ) {
     name
     price
     onSale

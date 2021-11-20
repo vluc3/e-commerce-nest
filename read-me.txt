@@ -2,7 +2,7 @@ npm i -g @nestjs/cli
 
 nest --version
 
-nest new e-commerce-nest
+nest new graphql-commerce-nest
 nest
 
 npm i -s graphql
@@ -17,9 +17,9 @@ npm run start:debug
 _________________________________
 
 
-git remote add origin https://github.com/vluc3/e-commerce-nest.git
+git remote add origin https://github.com/vluc3/graphql-commerce-nest.git
 git branch -M main
-git remote set-url origin git@github.com:vluc3/e-commerce-nest.git
+git remote set-url origin git@github.com:vluc3/graphql-commerce-nest.git
 git push --set-upstream origin main
 
 _________________________________

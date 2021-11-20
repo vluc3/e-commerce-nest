@@ -1,6 +1,6 @@
 export const Category = {
   products: ({ id: categoryId }, { filter }, { database }) => {
-    let filteredProducts = database.products.filter((product: any) => {
+    let result = database.products.filter((product: any) => {
       return product.categoryId === categoryId;
     });
 
@@ -8,13 +8,13 @@ export const Category = {
       const { onSale, avgRating } = filter;
 
       if (onSale !== null) {
-        filteredProducts = filteredProducts.filter((product: any) => {
+        result = result.filter((product: any) => {
           return product.onSale === onSale;
         });
       }
 
       if ([1, 2, 3, 4, 5].includes(avgRating)) {
-        filteredProducts = filteredProducts.filter((product: any) => {
+        result = result.filter((product: any) => {
           let sumRating = 0;
           let reviewCount = 0;
 
@@ -30,6 +30,6 @@ export const Category = {
       }
     }
 
-    return filteredProducts;
+    return result;
   },
 };

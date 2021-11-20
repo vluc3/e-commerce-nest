@@ -36,8 +36,7 @@ const apolloServer = new ApolloServer({
 
 async function bootstrap() {
   apolloServer.listen().then(({ url }) => {
-    console.log();
-    console.log(`Apollo server is ready at ${url}`);
+    console.log(`\nApollo server is ready at ${url}`);
   });
 
   const app = await NestFactory.create(AppModule);
